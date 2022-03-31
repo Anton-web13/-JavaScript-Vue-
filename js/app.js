@@ -1,63 +1,55 @@
-// однострочный комментарий
-/* 
-  Многострочные комментарии
-*/
-/**
- * JSDoc комментарии
- */
+// var, let, const
+var name = 'Denis';
+console.log(name);
+name = 'Den';
+console.log(name);
 
-/**
- * Типы данных:
- * 1. Примитивные
- * - Number: 2019, 1.5, NaN, Infinity
- * - String: 'Hello', "Hello", `Hello`
- * - Boolean: true, false
- * - Null: null
- * - Undefined: undefined,
- * - Symbol()
- */
-console.log(2019, 1.5);
-console.log(20 * 'asdasd');
-console.log(1 / 0);
+var age;
+console.log(age);
+age = 30;
+console.log(age);
 
-console.log('Hello', "Hello", `Hello`);
+var $name = 'Ivan';
+console.log($name);
+var _name = 'Maks';
+console.log(_name);
+// var 1name = '';
 
-console.log(true, false);
+var userAge = 30;
+var user_age = 20;
+var UserAge = 40;
+var userage = 10;
 
-console.log(null);
+// console.clear();
 
-console.log(undefined);
+console.log(car);
+var car = 5;
+console.log(car);
+car = 'bmw';
+// var car = 'audi';
+console.log(car);
+// console.clear();
 
-// function names () {
-//   alert('sdfasdf');
-// }
+// console.log(nickname);
+let nickname = 'dmgame';
+nickname = 'dm';
+console.log(nickname);
 
-// console.log(names());
-console.log(Symbol());
+const firstName = 'Tom';
+// firstName = 'Jhon';
+// const lastName;
 
- /**
- * Типы данных:
- * 2. Объекты. (Reference type) Передаються по ссылке.
- * - Object: { name: 'Denis', age: 30 }
- *  * Array: [1, 2, 3]
- *  * Function: function foo() {}
- *  * Date: new Date()
- *  ....
- */
- console.log({ name: 'Denis', age: 30 });
- console.table({ name: 'Denis', age: 30 });
- console.log([1, 2, 3, 4]);
- 
- console.table([1, 2, 3, 4]);
+console.log(firstName);
 
- console.table({name: "Anton", Stadt: "Berlin"});
+const user = {
+  name: 'Denis',
+  age: 30
+};
 
- console.table('sfgzsfdg');
+console.log(user);
 
- /**
- * Особености:
- * 1. JS динамически типизированный язык
- * 2. Одна и та же переменная может хранить в себе любой тип данных
- * 3. Нам не нужно определять тип данных при создании переменных
- * 4. Если мы хотим использовать статическую типизацию мы можем использовать TypeScript или Flow
- */
+user.ages = 255;
+
+user.age = 25;
+
+console.log(user);
