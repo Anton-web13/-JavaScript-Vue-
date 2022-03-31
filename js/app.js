@@ -28,6 +28,11 @@ console.log(null);
 
 console.log(undefined);
 
+// function names () {
+//   alert('sdfasdf');
+// }
+
+// console.log(names());
 console.log(Symbol());
 
  /**
@@ -39,9 +44,15 @@ console.log(Symbol());
  *  * Date: new Date()
  *  ....
  */
-
+ console.log({ name: 'Denis', age: 30 });
  console.table({ name: 'Denis', age: 30 });
  console.log([1, 2, 3, 4]);
+ 
+ console.table([1, 2, 3, 4]);
+
+ console.table({name: "Anton", Stadt: "Berlin"});
+
+ console.table('sfgzsfdg');
 
  /**
  * Особености:
