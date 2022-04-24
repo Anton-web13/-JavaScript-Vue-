@@ -1,30 +1,22 @@
-const firstName = 'Denis';
-const lastName = 'Mescheryakov';
-const age = 30;
+let string = 'some test string';
 
-let str;
-str = "Hello my name is " + firstName + ' ' + lastName;
+let value;
+value = string[0];
+value = string[string.length - 1];
+value = string[0].toUpperCase();
+value = string[string.length - 1].toUpperCase();
+value = string.indexOf('string');
+value = string.indexOf(' ', string.indexOf('test'));
+value = string.slice(5, 9);
+value = string.slice(5, 9);
+value = string.slice(5, -5);
+let a = 20;
+let b = 16;
+value = '20' + '16';
+value = string.concat(' ', b);
+a = '20';
+b = '16';
+value = a.concat('', b);
 
-// str = 'Hello my name is ' + firstName + ' ' + lastName;
 
-str = '<ul>' +
-      '<li>First name: ' + firstName + '</li>' +
-      '<li>Last name: ' + lastName + '</li>' +
-      '<li>Age: ' + age + '</li>' +
-      '</ul>';
-
-// console.log(str);
-
-// // ES6
-str = `
-  <ul>
-    <li>First name: ${ firstName }</li>
-    <li>Last name: ${ lastName }</li>
-    <li>Age: ${ age }</li>
-    <li>Math.random: ${ Math.random() * 100 }</li>
-    <li>5 + 5: ${ 5 + 5 }</li>
-  </ul>
-`;
-
-document.body.innerHTML = str;
-
+console.log(value);
