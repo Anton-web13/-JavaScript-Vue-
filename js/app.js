@@ -1,39 +1,14 @@
-const user = {
-    firstName: 'Denis',
-    age: 30,
-    isAdmin: true,
-    email: 'test@test.com',
-    'user-address': {
-        city: 'Kharkiv'
-    },
-    skills: ['html', 'css', 'js']
-};
+// const product = {
+//     product: 'iphone'
+// }
 
-let value;
-let prop = 'skills';
+const object = {};
 
-value = user.firstName;
-value = user['isAdmin'];
-value = user['user-address'];
-value = user['user-address'].city;
-value = user['user-address']['city'];
-value = user[prop];
-value = user[prop][0];
+object.product = 'iphone';
+object.price = '1000';
+object.currency = 'dollar';
+object.details = {};
+object.details.model = 'model';
+object.details.color = 'color';
 
-user.firstName = 'Den';
-
-value = user.firstName;
-
-user.info = 'Some info';
-
-user['user-address'].city = 'Kiev';
-user['user-address'].contry = 'Ukraine';
-
-console.log(user.plan);
-
-user.plan = {};
-user.plan.basic = 'basic';
-
-
-console.log(value);
-console.log(user);
+console.log(object);
