@@ -1,72 +1,40 @@
-// let a = 0 || 'string';
-// let a = 1 && 'string';
-// let a = null || 25;
-// let a = null && 25;
-// let a = null || 0 || 35;
-// let a = null && 0 && 35;
+let a = 1;
+let b = 0;
 
-// let a = 12 + 14 + '12';
-// let a = 3 + 2 - '1';
-// let a = '3' + 2 - 1;
-// let a = true + 2;
-// let a = +'10' + 1;
-// let a = undefined + 2;
-// let a = null + 5;
-// let a = true + undefined;
 
-// let aaaa = 2;
-
-// if (aaaa == 'hidden') {
-//     aaaa = 'visible';
+// if (a > 0) {
+//   b = a;
 // } else {
-//     aaaa = 'hidden';
+//   b += 1;
 // }
 
-// if (aaaa == 1) {
-//     aaaa = 0;
-// } else if (aaaa < 0) {
-//     aaaa = 'less then zero';
-// } else if (aaaa > 0) {
-//     aaaa*= 10;
+// выражение ? если true : если false;
+// выражение ? если true : выражение ? если true : если false;
+// let c = a > 0 ? b = a : b += 1;
+// b = a > 0 ? b = a : b += 1;
+
+b =  a > 0 ? 2 : a < 0 ? 3 : 0;
+
+// console.log(`b: ${b}`);
+
+let color = 'yellow';
+
+// switch(color) {
+//     case 'yellow':
+//         console.log('Color is yellow');
+//         break;
+//     case 'red': 
+//         console.log('Color is red'); 
+//         break;
+//     default:
+//         console.log('Default');
 // }
 
-// let car = {
-//     name: 'Lexus', 
-//     age: 10, 
-//     create: 2008, 
-//     needRepair: false
-// }
-
-// if (car.age > 5) {
-//     console.log('Need Repair');
-//     car.needRepair = true;
-// } else
-//     car.needRepair = false;
-
-// let item = { 
-//     name: 'Intel core i7', 
-//     price: '100$', 
-//     discount: '15%' 
-// }
-
-// if (item.discount && item.discount !== NaN && item.price !== NaN) {
-//     item.priceWithDiscount = parseInt('100$') - ((parseInt('100$') * parseInt('15%')) / 100);
-//     console.log(item.priceWithDiscount);
-// }
-
-let product = {
-    name: 'Яблоко',
-    price: '100$'
-};
-
-let min = 10; // минимальная цена
-let max = 20; // максимальная цена
-
-if (parseInt(product.price) >= min && parseInt(product.price) <= max) {
-    console.log(product.name);
-} else {
-    console.log('Товаров не найдено');
+switch(color) {
+    case 'yellow':
+    case 'red': 
+        console.log('Color is red || yellow'); 
+        break;
+    default:
+        console.log('Default');
 }
-
-
-console.log(product);
