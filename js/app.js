@@ -1,123 +1,72 @@
-let value;
+// let a = 0 || 'string';
+// let a = 1 && 'string';
+// let a = null || 25;
+// let a = null && 25;
+// let a = null || 0 || 35;
+// let a = null && 0 && 35;
 
-value = 1 > 2;
-value = 1 <= 2;
-value = 1 == 1;
-value = 1 == "1";
-value = 1 == true;
-value = 1 === '1';
-value = 1 === 1;
-value = 1 != '1';
-value = 1 !== '1';
-value = 'a' < 'A';
-value = 'a' > 'ab';
-value = 'a'.charCodeAt();
-value = 'A'.charCodeAt();
+// let a = 12 + 14 + '12';
+// let a = 3 + 2 - '1';
+// let a = '3' + 2 - 1;
+// let a = true + 2;
+// let a = +'10' + 1;
+// let a = undefined + 2;
+// let a = null + 5;
+// let a = true + undefined;
 
-value = 10;
+// let aaaa = 2;
 
-// if (value !== 10) {
-//   console.log('value: 10');
+// if (aaaa == 'hidden') {
+//     aaaa = 'visible';
 // } else {
-//   console.log('else');
+//     aaaa = 'hidden';
 // }
 
-
-
-value = null; // false
-
-value = "";
-value = 0;
-
-value = NaN;
-
-value = 100;
-
-value = null
-
-// if (!value) {
-//   console.log('some actions', value);
-// } else {
-//   console.log('else', value);
+// if (aaaa == 1) {
+//     aaaa = 0;
+// } else if (aaaa < 0) {
+//     aaaa = 'less then zero';
+// } else if (aaaa > 0) {
+//     aaaa*= 10;
 // }
 
-
-value = [1];
-
-// if (value.length) {
-//     console.log(value);
+// let car = {
+//     name: 'Lexus', 
+//     age: 10, 
+//     create: 2008, 
+//     needRepair: false
 // }
 
-// if (value.length) {
-//     console.log(value);
-// } else {
-//     console.log('array is empty');
+// if (car.age > 5) {
+//     console.log('Need Repair');
+//     car.needRepair = true;
+// } else
+//     car.needRepair = false;
+
+// let item = { 
+//     name: 'Intel core i7', 
+//     price: '100$', 
+//     discount: '15%' 
 // }
 
-value = null;
-
-// if (Array.isArray(value)) {
-//     console.log(value);
-// } else {
-//     console.log('array is empty');
+// if (item.discount && item.discount !== NaN && item.price !== NaN) {
+//     item.priceWithDiscount = parseInt('100$') - ((parseInt('100$') * parseInt('15%')) / 100);
+//     console.log(item.priceWithDiscount);
 // }
 
-// console.log(value);
-
-
-let user = {
-    // name: 'Denis'
-    name: null
+let product = {
+    name: 'Яблоко',
+    price: '100$'
 };
 
-// if (user.hasOwnProperty('name')) { // hasOwnProperty не проверяет на значение
-//   console.log(user.name);
-// } else {
-//   console.log('else');
-// }
+let min = 10; // минимальная цена
+let max = 20; // максимальная цена
 
-
-value = 1 || 2; // der erste true
-
-value = 0 || 0 || null;
-
-// let age = 10;
-
-
-// if (age < 16 || age > 65) {
-//   console.log('some actions');
-// } else {
-//   console.log('else');
-// }
-
-// let serverNickname = 'Denis';
-let serverNickname = '';
-let nickname = serverNickname || 'default nickname';
-
-value = 1 && 2 && 3;
-
-productPrice = 10;
-
-// if (productPrice >= 5 && productPrice <= 20) {
-//   console.log('беру');
-// } else {
-//   console.log('else');
-// }
-
-// console.log(value);
-
-value = 10;
-
-// if (value < 10) {
-//     console.log('value < 10', value);
-//   } else
-//     console.log('value >= 10', value);
- 
-
-if (value < 10) {
-  console.log('value < 10', value);
-} else if (value >= 10) {
-  console.log('value >= 10', value);
+if (parseInt(product.price) >= min && parseInt(product.price) <= max) {
+    console.log(product.name);
 } else {
-  console.log('else');
+    console.log('Товаров не найдено');
 }
+
+
+console.log(product);
