@@ -1,40 +1,25 @@
-let a = 1;
-let b = 0;
+let a = 'none';
 
-
-// if (a > 0) {
-//   b = a;
-// } else {
-//   b += 1;
-// }
-
-// выражение ? если true : если false;
-// выражение ? если true : выражение ? если true : если false;
-// let c = a > 0 ? b = a : b += 1;
-// b = a > 0 ? b = a : b += 1;
-
-b =  a > 0 ? 2 : a < 0 ? 3 : 0;
-
-// console.log(`b: ${b}`);
-
-let color = 'yellow';
-
-// switch(color) {
-//     case 'yellow':
-//         console.log('Color is yellow');
+// switch(a) {
+//     case 'block':
+//         console.log('block');
 //         break;
-//     case 'red': 
-//         console.log('Color is red'); 
+//     case 'none':
+//         console.log('none');
+//         break;
+//     case 'inline':
+//         console.log('inline');
 //         break;
 //     default:
-//         console.log('Default');
+//         console.log('other');
 // }
 
-switch(color) {
-    case 'yellow':
-    case 'red': 
-        console.log('Color is red || yellow'); 
-        break;
-    default:
-        console.log('Default');
-}
+let aaaa = 2;
+
+// aaaa = aaaa == 'hidden' ? aaaa = 'visible' :  aaaa = 'hidden';
+
+// console.log(aaaa);
+
+aaaa = aaaa == 0 ? aaaa = 1 : aaaa < 0 ? aaaa = 'less then zero' : aaaa *= 10;
+
+console.log(aaaa);
