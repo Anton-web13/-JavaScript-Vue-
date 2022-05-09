@@ -1,25 +1,122 @@
-let a = 'none';
+// while, do while, for, for of, for in
 
-// switch(a) {
-//     case 'block':
-//         console.log('block');
-//         break;
-//     case 'none':
-//         console.log('none');
-//         break;
-//     case 'inline':
-//         console.log('inline');
-//         break;
-//     default:
-//         console.log('other');
+// let i = 10;
+// while(i++ < 10) {
+//   console.log(i);
 // }
 
-let aaaa = 2;
+// while(i--) {   // es geht bis 0. 0 ist false
+//     console.log(i);
+// }
 
-// aaaa = aaaa == 'hidden' ? aaaa = 'visible' :  aaaa = 'hidden';
+// do {
+//   console.log('action');
+// } while(i > 0);
 
-// console.log(aaaa);
+// for(let i = 0; i < 10; i++) {
+//     console.log(i);
+// }
 
-aaaa = aaaa == 0 ? aaaa = 1 : aaaa < 0 ? aaaa = 'less then zero' : aaaa *= 10;
+// for(let i = 0; i < 10; i++) {
+//     if (i === 5) {
+//         break;
+//     }
+//     // if (i === 6) {
+//     //     continue;
+//     // }
+    
+//     console.log(i);
+// }
 
-console.log(aaaa);
+// let str = 'Hello';
+// let res = '';
+
+// for (let i = 0; i < str.length; i++) {
+//     // console.log(i);
+//     // console.log(str[i]);
+//     // console.log(str[i] + '!');
+//     res += str[i] + '*';
+// }
+
+// console.log(res);
+
+// let colors = ['white', 'black', 'yellow', 'orange'];
+
+// for (let i = 0; i < colors.length; i++) {
+//   console.log(colors[i]);
+//   colors[i] = colors[i].toUpperCase();
+// }
+
+// console.log(colors);
+
+// const users = [
+//     {
+//       name: 'Denis',
+//       age: 30
+//     },
+//     {
+//       name: 'Oleg',
+//       age: 12
+//     },
+//     {
+//       name: 'Maks',
+//       age: 25
+//     },
+//     {
+//       name: 'Olga',
+//       age: 2
+//     },
+// ];
+
+// const usersObj = {};
+
+// for ( let i = 0; i < users.length; i++) {
+//     // console.log(users[i].age);
+//     usersObj[users[i].age] = users[i];
+// }
+
+// // console.log(usersObj);
+// console.log(usersObj[12]);
+
+const users = [
+    {
+      name: 'Denis',
+      age: 30
+    },
+    {
+      name: 'Oleg',
+      age: 12
+    },
+    {
+      name: 'Maks',
+      age: 25
+    },
+    {
+      name: 'Olga',
+      age: 2
+    },
+];
+
+// const usersObj = {};
+
+// for ( let i = 0; i < users.length; i++) {
+//     // console.log(users[i].age);
+//     usersObj[users[i].name] = users[i];
+// }
+
+// console.log(usersObj);
+// console.log(usersObj['Denis']);
+
+// const user = {
+//   name: 'Denis',
+//   age: 30
+// };
+
+// for (let kot in users) {
+//     console.log(kot);
+//     console.log(users[kot]);
+// }
+
+for (let value of users) {
+    console.log(value);
+}
