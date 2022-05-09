@@ -1,122 +1,67 @@
-// while, do while, for, for of, for in
-
-// let i = 10;
-// while(i++ < 10) {
-//   console.log(i);
-// }
-
-// while(i--) {   // es geht bis 0. 0 ist false
-//     console.log(i);
-// }
-
-// do {
-//   console.log('action');
-// } while(i > 0);
-
-// for(let i = 0; i < 10; i++) {
-//     console.log(i);
-// }
-
-// for(let i = 0; i < 10; i++) {
-//     if (i === 5) {
-//         break;
-//     }
-//     // if (i === 6) {
-//     //     continue;
-//     // }
-    
-//     console.log(i);
-// }
-
-// let str = 'Hello';
+// let qwe = 'i am in the easycode';
 // let res = '';
 
-// for (let i = 0; i < str.length; i++) {
-//     // console.log(i);
-//     // console.log(str[i]);
-//     // console.log(str[i] + '!');
-//     res += str[i] + '*';
+// let words = qwe.split(" ");
+
+// console.log(words);
+
+// for (let i = 0; i < words.length; i++) {
+//     var w = words[i][0].toUpperCase() + words[i].substr(1);
 // }
 
+// res = words.join(' ');
+
+// console.log(words);
+// console.log(w);
+
+// for (let i = 0; i < words.length; i++) {
+//     // console.log(words[i]);
+//     res = words[i].join();
+// }
 // console.log(res);
 
-// let colors = ['white', 'black', 'yellow', 'orange'];
 
-// for (let i = 0; i < colors.length; i++) {
-//   console.log(colors[i]);
-//   colors[i] = colors[i].toUpperCase();
-// }
 
-// console.log(colors);
+// firstLetterCaps
 
-// const users = [
-//     {
-//       name: 'Denis',
-//       age: 30
-//     },
-//     {
-//       name: 'Oleg',
-//       age: 12
-//     },
-//     {
-//       name: 'Maks',
-//       age: 25
-//     },
-//     {
-//       name: 'Olga',
-//       age: 2
-//     },
-// ];
+// let str = 'you know nothing jon snow'; 
+//    // Просто пробел ↓ хотя можно было явно записать \s ('s', от слова 'space')
+// str = str.replace(/( |^)[а-яёa-z]/g, function(x){ return x.toUpperCase();});
+// console.log( str );
 
-// const usersObj = {};
+let qaz = 'tseb eht ma i';
+let newString = "";
 
-// for ( let i = 0; i < users.length; i++) {
-//     // console.log(users[i].age);
-//     usersObj[users[i].age] = users[i];
-// }
-
-// // console.log(usersObj);
-// console.log(usersObj[12]);
-
-const users = [
-    {
-      name: 'Denis',
-      age: 30
-    },
-    {
-      name: 'Oleg',
-      age: 12
-    },
-    {
-      name: 'Maks',
-      age: 25
-    },
-    {
-      name: 'Olga',
-      age: 2
-    },
-];
-
-// const usersObj = {};
-
-// for ( let i = 0; i < users.length; i++) {
-//     // console.log(users[i].age);
-//     usersObj[users[i].name] = users[i];
-// }
-
-// console.log(usersObj);
-// console.log(usersObj['Denis']);
-
-// const user = {
-//   name: 'Denis',
-//   age: 30
-// };
-
-// for (let kot in users) {
-//     console.log(kot);
-//     console.log(users[kot]);
-// }
-
-for (let value of users) {
-    console.log(value);
+for (let i = qaz.length -1; i >= 0; i--) {
+    console.log(qaz[i]);
+    newString += qaz[i];
 }
+
+let newStringw = newString.split(" ");
+
+let newStringwe = newStringw.join("");
+
+console.log(newStringwe);
+
+// for (let i = qaz.length - 1; i >= 0; i--) {
+//     newString += qaz[i];
+// }
+// console.log(newString);
+
+// let wer = qaz.split("").reverse().join("");
+
+
+let qwe = 'JavaScript is a pretty good language';
+
+let words = qwe.split(" ");
+
+let res = '';
+
+console.log(words);
+
+for (let i = 0; i < words.length; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+}
+
+res = words.join('');
+console.log(res);
