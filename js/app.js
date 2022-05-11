@@ -1,33 +1,57 @@
-const numArr = [2, 32, 1234, 54, 323];
+// function nnnn (n) {
+//     let num = [];
+//     for (let i = 0; i < n; i++) {
+//         num[i] = i + 1;
+//     }
+//     return console.log(num);
+// }
+// nnnn(20);
 
-console.log(numArr);
 
-let value;
 
-value = numArr.length;
+// function nnnn (n) {
 
-// numArr.length = 0;
-// numArr.length = 100;
+//     let num = [];
+    
+//     for (let i = n -0; i >= 1; i--) {
+//         num.unshift(i);
+//     }
+//     return console.log(num);
+// }
 
-value = Array.isArray(numArr);
-value = numArr[2];
-numArr[2] = 12;
-value = numArr.indexOf(32);
+// nnnn(20);
 
-value = numArr.push(100);  // hinzufügen am Ende
-value = numArr.pop();  // löschen am Ende
-value = numArr.unshift(111);  // hinzufügen am Anfang
-value = numArr.shift();  // löschen am Anfang
-value = numArr.slice(0, 2);  // ausschneiden aus dem Array
-value = numArr.slice(); // die Kopie vom Array
-value = numArr.splice(1, 2, "one", "two");
-// value = numArr.splice(1, 0, "one", "two");
-// value = numArr.splice(1, 2);
-// value = numArr.reverse();
-// value = numArr.concat(numArr);
-value = numArr.concat(1, 2); // hinzufügen am Ende
-// value = [].concat(1, 2, 3);
-value = numArr.join(" ");
-value = "hello world".split(" ");
 
-console.log(value, numArr);
+// function nnnn (n) {
+
+//     let num = [];
+    
+//     for (let i = 1; i <= n; i++) {
+
+//         num.push(i);
+//     }
+//     return console.log(num);
+// }
+
+// nnnn(20);
+
+
+
+function nnnn (n) {
+    n = 3;
+    let num = [];
+    
+    for (let i = 1; i <= n; i++) {
+
+        num.push(i);
+        num.concat(num);
+    }
+    return num;
+}
+
+let rew = nnnn();
+
+console.log(rew);
+
+let tyt = rew.concat(rew);
+console.log(tyt);
