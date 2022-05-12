@@ -74,33 +74,33 @@
 
 
 
-const users = [
-    {name: 'Pavel', gender: 'male', age: 29},
-    {name: 'Anna', gender: 'female', age: 18},
-    {name: 'Fiona', gender: 'female', age: 19},
-    {name: 'Julia', gender: 'female', age: 28},
-    {name: 'Alex', gender: 'male', age: 23},
-    {name: 'Sonya', gender: 'female', age: 17},
-    {name: 'Frank', gender: 'male', age: 44},
-    {name: 'John', gender: 'male', age: 49},
-    {name: 'Greta', gender: 'female', age: 57}
-];
+// const users = [
+//     {name: 'Pavel', gender: 'male', age: 29},
+//     {name: 'Anna', gender: 'female', age: 18},
+//     {name: 'Fiona', gender: 'female', age: 19},
+//     {name: 'Julia', gender: 'female', age: 28},
+//     {name: 'Alex', gender: 'male', age: 23},
+//     {name: 'Sonya', gender: 'female', age: 17},
+//     {name: 'Frank', gender: 'male', age: 44},
+//     {name: 'John', gender: 'male', age: 49},
+//     {name: 'Greta', gender: 'female', age: 57}
+// ];
 
-function funcGetUsers(arrayUsers, key, keyValue){
-    let result = [];
-    for (let user of arrayUsers) {
-        // console.log(arrayUsers);
-        // console.log(user);
-        // console.log(user[key]);
-        if (user[key] === keyValue) {
-            result.push(user);
-        }
-    }
-    return result;
-};
+// function funcGetUsers(arrayUsers, key, keyValue){
+//     let result = [];
+//     for (let user of arrayUsers) {
+//         // console.log(arrayUsers);
+//         // console.log(user);
+//         // console.log(user[key]);
+//         if (user[key] === keyValue) {
+//             result.push(user);
+//         }
+//     }
+//     return result;
+// };
 
-const newUser = funcGetUsers(users, 'gender', 'female');
-console.log(newUser);
+// const newUser = funcGetUsers(users, 'gender', 'female');
+// console.log(newUser);
 
 
 // const user = {
@@ -112,3 +112,38 @@ console.log(newUser);
 //     console.log(kot);
 //     console.log(user[kot]);
 // }
+
+
+
+
+
+const users = [
+    {name: 'Pavel', gender: 'male', age: 29},
+    {name: 'Anna', gender: 'female', age: 17},
+    {name: 'Fiona', gender: 'female', age: 19},
+    {name: 'Julia', gender: 'female', age: 28},
+    {name: 'Alex', gender: 'male', age: 23},
+    {name: 'Sonya', gender: 'female', age: 17},
+    {name: 'Frank', gender: 'male', age: 44},
+    {name: 'John', gender: 'male', age: 44},
+    {name: 'Greta', gender: 'female', age: 57}
+];
+
+function funcGetUsers(usersArray, key, male, key2, age) {
+    // console.log(users);
+
+    let arrayUser = [];
+
+    for (let user of usersArray) {
+        // console.log(users[key]);
+        if (user[key] === male && user[key2] === age) {
+            // console.log(user);
+            arrayUser.push(user);
+        }
+    }
+
+    return arrayUser;
+}
+
+let to = funcGetUsers(users, 'gender', 'male', 'age', 44);
+console.log(to);
