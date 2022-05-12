@@ -147,3 +147,20 @@ function funcGetUsers(usersArray, key, male, key2, age) {
 
 let to = funcGetUsers(users, 'gender', 'male', 'age', 44);
 console.log(to);
+
+
+
+
+
+
+let too = to.slice();
+
+let resultik = [];
+
+for (let i = 0; i < too.length; i++) {
+    console.log(too[i].name);
+    too[i] = too[i].name;
+    resultik.unshift(too[i]);
+}
+console.log(too);
+console.log(resultik);
