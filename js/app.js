@@ -1,166 +1,109 @@
-// function nnnn (n) {
-//     let num = [];
-//     for (let i = 0; i < n; i++) {
-//         num[i] = i + 1;
-//     }
-//     return console.log(num);
-// }
-// nnnn(20);
-
-
-
-// function nnnn (n) {
-
-//     let num = [];
-    
-//     for (let i = n -0; i >= 1; i--) {
-//         num.unshift(i);
-//     }
-//     return console.log(num);
+// function foo() { // функция это объект
+//     console.log("Hello World");
 // }
 
-// nnnn(20);
+// foo();
+
+// foo.field = "Denis";
+// console.log(foo.field);
 
 
-// function nnnn (n) {
+// const arr = ['Denis', 'Ivan', 'Maks', 'Olga'];
 
-//     let num = [];
-    
-//     for (let i = 1; i <= n; i++) {
-
-//         num.push(i);
-//     }
-//     return console.log(num);
+// let newArr = [];
+// for (let i = 0; i < arr.length; i++) {
+//     newArr.push(arr[i].length);
 // }
-
-// nnnn(20);
-
+// console.log(newArr);
 
 
-// function nnnn (n) {
-//     n = 3;
-//     let num = [];
-    
-//     for (let i = 1; i <= n; i++) {
-
-//         num.push(i);
-//         num.concat(num);
-//     }
-//     return num;
+// let newArr2 = [];
+// for (let i = 0; i < arr.length; i++) {
+//     newArr2.push(arr[i].toUpperCase());
 // }
-
-// let rew = nnnn();
-
-// console.log(rew);
-
-// let tyt = rew.concat(rew);
-// console.log(tyt);
-
-// let array = [1,2,3];
-// let array2 = ['a','b','c'];
-
-// function nnnn () {
-//     // console.log(array);
-//     console.log(arguments);
-    
-//     for (let i = 0; i < arguments.length; i++) {
-//         // console.log(arguments[i]);
-//         let nummer = arguments[i].splice(1, 2);
-//         console.log(nummer);
-//     }
-// }
-
-// nnnn(array, array2);
+// console.log(newArr2);
 
 
+const names = ['Denis', 'Ivan', 'Maks', 'Olga'];
 
-// const users = [
-//     {name: 'Pavel', gender: 'male', age: 29},
-//     {name: 'Anna', gender: 'female', age: 18},
-//     {name: 'Fiona', gender: 'female', age: 19},
-//     {name: 'Julia', gender: 'female', age: 28},
-//     {name: 'Alex', gender: 'male', age: 23},
-//     {name: 'Sonya', gender: 'female', age: 17},
-//     {name: 'Frank', gender: 'male', age: 44},
-//     {name: 'John', gender: 'male', age: 49},
-//     {name: 'Greta', gender: 'female', age: 57}
-// ];
+function mapArray(arr, fn){
+    const res = [];
+    for (let i = 0; i < arr.length; i++) {
+        res.push(fn(arr[i]));
+    }
+    return res;
+}
 
-// function funcGetUsers(arrayUsers, key, keyValue){
-//     let result = [];
-//     for (let user of arrayUsers) {
-//         // console.log(arrayUsers);
-//         // console.log(user);
-//         // console.log(user[key]);
-//         if (user[key] === keyValue) {
-//             result.push(user);
+function namesLength(el) {
+    console.log(el);
+    return el.length;
+}
+
+function nameToUpperCase(el) {
+    return el.toUpperCase();
+}
+
+const result = mapArray(names, namesLength);
+const result2 = mapArray(names, nameToUpperCase);
+
+console.log(result2);
+
+console.clear();
+
+
+
+
+
+
+
+function greeting(firstName){
+    return function(lastName){
+        return `Hello, ${firstName} ${lastName}`;
+    }
+}
+
+// const testGreeting = greeting('Denis');
+// console.log(testGreeting);
+// const fullName = testGreeting('Maks');
+const fullName = greeting('Denis')('Maks');
+
+// console.log(fullName);
+
+
+
+
+
+
+
+// function question(job) {
+//     if (job === 'developer') {
+//         return function (name){
+//             return `${name}, was ist JavaScript?`;
+//         }
+//     } else if (job === 'teacher') {
+//         return function (name){
+//             return `${name}, welches Fach unterichten Sie?`;
 //         }
 //     }
-//     return result;
-// };
-
-// const newUser = funcGetUsers(users, 'gender', 'female');
-// console.log(newUser);
-
-
-// const user = {
-//   name: 'Denis',
-//   age: 30
-// };
-
-// for (let kot in user) {
-//     console.log(kot);
-//     console.log(user[kot]);
 // }
 
-
-
-
-
-const users = [
-    {name: 'Pavel', gender: 'male', age: 29},
-    {name: 'Anna', gender: 'female', age: 17},
-    {name: 'Fiona', gender: 'female', age: 19},
-    {name: 'Julia', gender: 'female', age: 28},
-    {name: 'Alex', gender: 'male', age: 23},
-    {name: 'Sonya', gender: 'female', age: 17},
-    {name: 'Frank', gender: 'male', age: 44},
-    {name: 'John', gender: 'male', age: 44},
-    {name: 'Greta', gender: 'female', age: 57}
-];
-
-function funcGetUsers(usersArray, key, male, key2, age) {
-    // console.log(users);
-
-    let arrayUser = [];
-
-    for (let user of usersArray) {
-        // console.log(users[key]);
-        if (user[key] === male && user[key2] === age) {
-            // console.log(user);
-            arrayUser.push(user);
-        }
+function question(job) {
+    const jobDictionary = {
+        developer: 'was ist JavaScript?',
+        teacher: 'welches Fach unterichten Sie?'
+    };
+    
+    return function (name){
+        return `${name}, ${jobDictionary[job]}`;
     }
-
-    return arrayUser;
 }
 
-let to = funcGetUsers(users, 'gender', 'male', 'age', 44);
-console.log(to);
+const developerQuestion = question('teacher');
+// console.log(developerQuestion);
+// console.log(developerQuestion('Denis'));
+// const developerQuestion = question('developer')('Denis');
+console.log(developerQuestion('Denis'));
 
+const teacherQuestion = question('teacher');
+console.log(teacherQuestion('Denis'));
 
-
-
-
-
-let too = to.slice();
-
-let resultik = [];
-
-for (let i = 0; i < too.length; i++) {
-    console.log(too[i].name);
-    too[i] = too[i].name;
-    resultik.unshift(too[i]);
-}
-console.log(too);
-console.log(resultik);
