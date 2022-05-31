@@ -15,7 +15,7 @@ function getPrice() {
 }
 
 function getPrice(currency = '$') {
-    console.log(currency + this.price);
+    // console.log(currency + this.price);
     // console.log(currency + this.price);
     return this;
 }
@@ -112,3 +112,164 @@ const getPriceBind = prod3.getPrice.bind(prod3, '%');
 console.log(getPriceBind);
 // setTimeout(getPriceBind, 1000);
 setTimeout(prod3.getPrice.bind(prod3, '%'), 1000);
+
+
+
+
+////////////////////////////////////////////////// 1)
+console.clear()
+
+const rectangle = {
+    width: 10,
+    height: 240,
+    getSquare: function () {
+        return(this.width * this.height);
+    }
+};
+
+console.log(rectangle.getSquare());
+
+
+////////////////////////////////////////////////// 2)
+console.clear();
+
+
+function getPrices() {
+    console.log(this.price);
+    return this;
+}
+
+function getPriceWithDiscount() {
+    console.log(this.price - ((this.price * parseInt(this.discount)) / 100));
+    return this;
+}
+
+const price = {
+    price: 10,
+    discount: '15%',
+    getPrices,
+    getPriceWithDiscount
+};
+
+console.log(parseInt(price.discount));
+
+price.getPrices();
+price.getPriceWithDiscount();
+
+
+
+////////////////////////////////////////////////// 3)
+console.clear();
+
+function moreHeight() {
+    console.log(this.height + 1);
+    return this;
+}
+
+const hoch = {
+    height: 10,
+    moreHeight
+};
+
+hoch.moreHeight();
+
+
+////////////////////////////////////////////////// 4)
+console.clear();
+
+const numerator  = {
+    value: 5,
+    double: function () {
+        this.value *= 2;
+        return this;
+    },
+    plusOne: function () {
+        this.value++;
+        return this;
+    },
+    minusOne:  function () {
+        this.value--;
+        return this;
+    }
+};
+
+// numerator.double();
+// numerator.plusOne();
+// numerator.minusOne();
+
+numerator.double().plusOne().plusOne().minusOne();
+console.log(numerator.value);
+
+// const newValue = numerator.double().plusOne().minusOne();
+// console.log(newValue);
+
+
+////////////////////////////////////////////////// 5)
+console.clear();
+
+
+
+// const product = {
+//     price: 10,
+//     wert: 15,
+//     resultPrice: function()  {
+//         return this.price * this.wert;
+//         // return this;
+//     }
+// };
+
+// // console.log(product.resultPrice.call(product));
+// console.log(product.resultPrice());
+
+
+////////////////////////////////////////////////// 6)
+console.clear();
+
+
+const product = {
+    price: 10,
+    wert: 15,
+    resultPrice: function()  {
+        return this.price * this.wert;
+    }
+};
+
+const productOnePart = {
+    price: 100,
+    wert: 112,
+};
+
+console.log(product.resultPrice.call(productOnePart));
+
+
+////////////////////////////////////////////////// 7)
+console.clear();
+
+let sizes = {
+    width: 5, 
+    height: 10
+}
+
+getSquare = function (current) {
+    return current + this.width * this.height
+};
+
+// function getSquare (current) {
+//     return this;
+// };
+
+console.log(getSquare.call(sizes, '$'));
+
+
+////////////////////////////////////////////////// 8)
+console.clear();
+
+let element = {
+    height: 25,
+    getHeight: function () {
+        return console.log(this.height);
+    }
+};
+
+let getElementHeight = element.getHeight.bind(element);
+getElementHeight();
