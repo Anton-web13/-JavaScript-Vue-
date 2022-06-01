@@ -221,3 +221,212 @@ numArr.sort();
 users.sort((prevUser, nextUser) => prevUser.age - nextUser.age);   // сортировка объектов
 console.log(users); 
 
+
+
+
+
+
+
+//////////////////////////// 1)
+console.clear();
+
+
+
+const arrValue = [1,2,3,5,8,9,10];
+
+const userId = arrValue.map(user => {
+
+    if (user % 2 === 0) {
+        return ({digit: user, odd: true});
+    } else {
+        return ({digit: user, odd: false});
+    }
+});
+
+console.log(userId);
+
+
+
+
+//////////////////////////// 2)
+console.clear();
+
+const arrValue2 = [12, 4, 50, 1, 0, 18, 40];
+
+const userNull = arrValue2.some(user => user === 0);
+
+console.log(userNull);
+
+
+
+
+//////////////////////////// 3)
+console.clear();
+
+const arrValue3 = ['yes', 'hello', 'no', 'easycode', 'what'];
+
+const checkOver = arrValue3.every(user => user.length > 3);
+
+console.log(checkOver);
+
+
+
+
+
+
+//////////////////////////// 4)
+console.clear();
+
+const arrayBuchstaben = [{char:"a",index:12}, {char:"w",index:8}, {char:"Y",index:10}, {char:"p",index:3}, {char:"p",index:2},
+{char:"N",index:6}, {char:" ",index:5}, {char:"y",index:4}, {char:"r",index:13}, {char:"H",index:0},
+{char:"e",index:11}, {char:"a",index:1}, {char:" ",index:9}, {char:"!",index:14}, {char:"e",index:7}]
+
+// console.log(arrayBuchstaben);
+
+let sortArray = arrayBuchstaben.sort((previous, next) => previous.index - next.index);
+
+console.log(sortArray);
+
+let builStringe = sortArray.reduce((prev, next) => prev.concat(next.char), ' ');
+
+console.log(builStringe);
+
+
+
+
+
+
+//////////////////////////// 5)
+console.clear();
+
+
+
+const arrayLength = [[14, 45], [1], ['a', 'c', 'd']] 
+// console.log(arrayLength);
+
+arrayLength.sort((prev, next) => prev.length - next.length);
+// arrayLength.sort();
+console.log(arrayLength);
+
+
+
+
+
+//////////////////////////// 6)
+console.clear();
+
+
+const arrayCpu = [
+    {cpu: 'intel', info: {cores:2, сache: 3}},
+    {cpu: 'intel', info: {cores:4, сache: 4}},
+    {cpu: 'amd', info: {cores:1, сache: 1}},
+    {cpu: 'intel', info: {cores:3, сache: 2}},
+    {cpu: 'amd', info: {cores:4, сache: 2}}
+];
+
+// arrayCpu.sort((prev, next) => {
+//     return prev.info.cores - next.info.cores;
+// });
+
+// arrayCpu.sort((prev, next) => {
+//     if(prev.info.cores < next.info.cores) {
+//         return -1;
+//     } else {
+//         return 1;
+//     }
+// })
+
+// arrayCpu.sort((prev, next) => {
+//     if(prev.info.сache < next.info.сache) {
+//         return -1;
+//     } else {
+//         return 1;
+//     }
+// })
+
+// arrayCpu.sort((prev, next) => {
+//     let nameA = prev.cpu, nameB = next.cpu;
+    
+//     if(nameA < nameB) {
+//         return -1;
+//     } else {
+//         return 1;
+//     }
+// })
+
+arrayCpu.sort((prev, next) => prev.info.cores - next.info.cores);
+
+// arrayCpu.sort((prev, next) => {
+//     if (prev.cpu < next.cpu) {
+//         return -1;
+//     } else {
+//         return 1;
+//     }
+// });
+
+console.log(arrayCpu);
+
+
+
+
+
+//////////////////////////// 7)
+console.clear();
+
+let products = [
+    {title: 'prod1', price: 5.2}, {title: 'prod2', price: 0.18},
+    {title: 'prod3', price: 15}, {title: 'prod4', price: 25},
+    {title: 'prod5', price: 18.9}, {title: 'prod6', price: 8},
+    {title: 'prod7', price: 19}, {title: 'prod8', price: 63}
+];
+
+// console.log(products);
+
+
+// let filterCollection = products.filter((prod) => {
+//     return prod;
+// });
+
+// console.log(filterCollection);
+// const earilter = products.filter((prod) => {
+//     if (prod.price >= 15 && prod.price <= 30) {
+//         return prod;
+//     }
+// })
+
+function filterCollection(product, a, b) {
+    let lala = product.filter((prod) => {
+        if (prod.price >= a && prod.price <= b) {
+            return prod;
+        }
+    })
+    console.log(lala);
+    let blabla = lala.sort((previos, next) => {
+        if (previos.price < next.price) {
+            return -1;
+        } else {
+            return 1;
+        }
+    });
+    return blabla;
+}
+
+const earilter = filterCollection(products, 15, 30);
+
+console.log(earilter);
+
+
+
+
+// function question(job) {
+//     const jobDictionary = {
+//         developer: 'was ist JavaScript?',
+//         teacher: 'welches Fach unterichten Sie?'
+//     };
+    
+//     return function (name){
+//         return `${name}, ${jobDictionary[job]}`;
+//     }
+// }
+// const developerQuestion = question('teacher');
+// console.log(developerQuestion('Denis'));
