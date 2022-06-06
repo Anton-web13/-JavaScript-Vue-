@@ -1,51 +1,74 @@
-let obj1 = {
-    name: 'Denis',
+const user = {
+    firstName: 'Denis',
+    lastName: 'Mescheryakov',
+    age: 25,
     info: {
-        skills:['html', 'css']
+        work: 'EasyCode',
+        skills: ['html', 'css']
     }
-}
+};
 
-let obj2 = {
-    name: 'Ivan',
-    age: 20,
-    sity: 'Minsk'
-}
-// let newObj = obj1;
-// let newObj = Object.assign({}, obj1);
-// let newObj = Object.assign({}, obj1, obj2);
-let newObj = Object.assign({}, obj2, obj1);
-newObj = Object.assign({}, obj1);
+// let firstName = user.firstName;
+// let lastName = user.lastName;
 
-console.log(newObj.info === obj1.info);
-// console.log(obj1);
+// console.log(firstName, lastName);
 
-// console.log(newObj === obj1);
-// console.log(newObj);
-// console.log(newObj === obj1);
+// let {firstName: name, lastName, age: years = 30} = user;
 
-console.log(obj1.info.skills)
-console.log(JSON.stringify(obj1));
-// let objJson = JSON.stringify(obj1);
-// console.log(objJson);
+// console.log(firstName, lastName);
+// console.log(age);
+// console.log(name, firstName);
+// console.log(years);
 
-// newObj = JSON.parse(objJson);
 
-let objJson = JSON.parse(JSON.stringify(obj1));
-console.log(objJson);
-console.log(objJson.info === obj1.info);
+
+// const {info: 
+//     {work, skills = ['htmls', 'csss']}
+// } = user;
+// console.log(skills);
+
+
+
+const {info: 
+    {work, skills}
+} = user;
+console.log(skills);
+ 
+const colors = ['white', 'black', 'red', '#89432d'];
+const [w, b, red, green = 'green'] = colors;
+console.log(w, b, red, green);
+
+const names = ['Denis', 'Ivan', 'Maksim'];
+
+// const [, name2, name3] = names;
+const [, , name3] = names;
+console.log(name3);
+
 
 console.clear();
 
-let keys = Object.keys(obj1);       //  только ключи
-console.log(keys);
+const nestedArr = ['hello world', ['key', 'value']];
+const [, [key, value]] = nestedArr;
+console.log(key, value);
 
-let values = Object.values(obj1);   // только значение
-console.log(values);
+const [name1, ...otherNames] = names;
+console.log(otherNames);
 
-let entries = Object.entries(obj1);   // пара ключ-значение
-console.log(entries);
+// const [...newNames] = names;
+const newNames = [...names];
 
-// let fromEntries = Object.fromEntries([['a', 'value']]);                  //  {a: 'value'}
-let fromEntries = Object.fromEntries([['a', 'value'], ['b', 'b_value']]);   //  {a: 'value', b: 'b_value'}
-console.log(fromEntries);                                  
+// console.log(newNames);                         // ['Denis', 'Ivan', 'Maksim']
+console.log(...newNames);                   // Denis Ivan Maksim
+
+const colorNames = [...colors, ...names];   // ['white', 'black', 'red', '#89432d', 'Denis', 'Ivan', 'Maksim']
+// const colorNames = ['some value', ...colors, ...names];
+console.log(colorNames);                    
+
+
+// const newUser = { ...user };            // не полное копированиеб а копирование по ссылке вложенных объектов
+const newUser = { ...user, age: 30 };
+
+console.log(newUser);
+
+
 
