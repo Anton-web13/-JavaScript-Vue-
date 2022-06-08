@@ -132,3 +132,91 @@ foo2(...numbers);                   // 2 3
 
 
 
+
+/////////////////////////////////////////////// 1)
+console.clear();
+
+
+const valuesB = ['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd', 'a', 'b', 'c', 'd'];
+
+function rest(arr) {
+
+    const [a, ...otherArray] = arr;
+
+    return {
+        first: a,
+        last: otherArray
+    }
+}
+const res2t = rest(valuesB);
+
+console.log(res2t);
+
+
+
+
+/////////////////////////////////////////////// 2)
+console.clear();
+
+
+const organisation = {  
+    name: 'Google', 
+    info: { 
+        employees: ['Vlad', 'Olga'], 
+        partners: ['Microsoft', 'Facebook', 'Xing']   
+    } 
+};
+
+
+// function getInfo(arr) {
+
+//     const {
+//         name = 'Unknown',
+//         info: {
+//             employees, partners: [Microsoft, Facebook, ...Xing]
+//         }
+//     } = arr
+    
+//     return `Name: ${name} \nPartners: ${Microsoft}, ${Facebook}`
+// }
+
+// console.log(getInfo(organisation));
+
+
+
+
+
+function getInfo({name = 'Unknown', info: {partners: [partner1, partner2, ...partner3]}}) {
+
+    console.log(partner1, partner2, partner3);
+    
+    return `Name: ${name} \nPartners: ${partner1}, ${partner2}`
+}
+
+console.log(getInfo(organisation));
+
+
+
+
+
+// const user = {
+//     firstName: 'Denis',
+//     lastName: 'Mescheryakov',
+//     age: 25,
+//     info: {
+//         work: 'EasyCode',
+//         skills: ['html', 'css']
+//     }
+// };
+
+
+
+// function  myPerson({
+//     lastName = '&', 
+//     firstName = '&', 
+//     info: {skills} = {}
+// } = {}) {
+//     console.log(firstName, lastName, skills[0]);
+// }
+
+// myPerson(newUser);
