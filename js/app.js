@@ -29,10 +29,10 @@ const user = {
 
 
 
-const {info: 
-    {work, skills}
-} = user;
-console.log(skills);
+// const {info: 
+//     {work, skills}
+// } = user;
+// console.log(skills);
  
 const colors = ['white', 'black', 'red', '#89432d'];
 const [w, b, red, green = 'green'] = colors;
@@ -45,7 +45,7 @@ const [, , name3] = names;
 console.log(name3);
 
 
-console.clear();
+// console.clear();
 
 const nestedArr = ['hello world', ['key', 'value']];
 const [, [key, value]] = nestedArr;
@@ -66,9 +66,69 @@ console.log(colorNames);
 
 
 // const newUser = { ...user };            // не полное копированиеб а копирование по ссылке вложенных объектов
-const newUser = { ...user, age: 30 };
+const newUser = { ...user, age: 30, firstName: 'Anton' };
 
 console.log(newUser);
+
+// const {
+//     info: {
+//         skills
+//     },
+// } = newUser;
+
+const {
+    info: {
+        skills: [html, css]
+    },
+} = newUser;
+
+
+console.log(html, css);
+
+
+
+
+
+// function  myPerson(obj) {
+//     console.log(obj.firstName);
+// }
+
+
+function  myPerson({
+    lastName = '&', 
+    firstName = '&', 
+    info: {skills} = {}
+} = {}) {
+    console.log(firstName, lastName, skills[0]);
+}
+
+myPerson(newUser);
+
+// console.clear();
+
+
+function foo(x, y, ...others) {
+    console.log(arguments);
+    console.log([].slice.call(arguments));   // [].slice - это вызов метода slice  // [1, 2]
+    console.log(Array.prototype.slice.call(arguments));  // [1, 2]
+    const [...arg] = arguments;
+    console.log(arg);
+    console.log(others);
+}
+
+foo(1, 2, 5, 6);
+
+
+const numbers = [2, 3];
+function foo2(x, y) {
+    console.log(x, y);
+}
+// foo2(numbers);                         // [2, 3] undefined
+// foo2(numbers[0], numbers[1]);       // 2 3
+foo2(...numbers);                   // 2 3
+
+
+
 
 
 
