@@ -143,27 +143,27 @@ const car = {
 
 
 
-// var user = {
-//     firstName: "Вася",
-//     surname: "Петров",
+var user = {
+    firstName: "Вася",
+    surname: "Петров",
 
-//     get fullName() {
-//         return this.firstName + ' ' + this.surname;
-//     },
+    get fullName() {
+        return this.firstName + ' ' + this.surname;
+    },
 
-//     set fullName(value) {
-//         var split = value.split(' ');
-//         this.firstName = split[0];
-//         this.surname = split[1];
-//     }
-// }
+    set fullName(value) {
+        var split = value.split(' ');
+        this.firstName = split[0];
+        this.surname = split[1];
+    }
+}
 
-// console.log(user.fullName);
+console.log(user.fullName);
 
-// user.fullName = "Петя Иванов";
+user.fullName = "Петя Иванов";
 
-// console.log(user.firstName);
-// console.log(user.surname);
+console.log(user.firstName);
+console.log(user.surname);
 
 
 
@@ -196,44 +196,49 @@ const car = {
 //   console.log(pete.age); // 25
 
 
-function User(name, birthday) {
-    this.name = name;
-    this.birthday = birthday;
-
-    Object.defineProperty(this, 'age', {
-        get: function() {
-            var today = new Date();
-            var yearDelta = today.getFullYear() - this.birthday.getFullYear();
-
-
-            if (today.getMonth() > this.birthday.getMonth() ||
-                (today.getMonth() === this.birthday.getMonth() && today.getDate() >= this.birthday.getDate())) {
-                return yearDelta;
-            }
-
-        return yearDelta - 1;
-
-        }
-    });
-}
-
-
-var pete = new User("Петя", new Date(1987, 6, 1));
-
-console.log( pete.birthday ); // и дата рождения доступна
-console.log( pete.age );      // и возраст
-console.log( pete );      // и возраст
 
 
 
 
-var today = new Date();
-var birthday = new Date(1987, 6, 1);
-var yearDeltaw = today.getFullYear() - birthday.getFullYear();
-console.log( today.getFullYear()  ); 
-console.log( birthday.getFullYear()  ); 
 
-console.log( yearDeltaw );  
+// function User(name, birthday) {
+//     this.name = name;
+//     this.birthday = birthday;
+
+//     Object.defineProperty(this, 'age', {
+//         get: function() {
+//             var today = new Date();
+//             var yearDelta = today.getFullYear() - this.birthday.getFullYear();
+
+
+//             if (today.getMonth() > this.birthday.getMonth() ||
+//                 (today.getMonth() === this.birthday.getMonth() && today.getDate() >= this.birthday.getDate())) {
+//                 return yearDelta;
+//             }
+
+//         return yearDelta - 1;
+
+//         }
+//     });
+// }
+
+
+// var pete = new User("Петя", new Date(1987, 6, 1));
+
+// console.log( pete.birthday ); // и дата рождения доступна
+// console.log( pete.age );      // и возраст
+// console.log( pete );      // и возраст
+
+
+
+
+// var today = new Date();
+// var birthday = new Date(1987, 6, 1);
+// var yearDeltaw = today.getFullYear() - birthday.getFullYear();
+// console.log( today.getFullYear()  ); 
+// console.log( birthday.getFullYear()  ); 
+
+// console.log( yearDeltaw );  
 
 
 
@@ -266,15 +271,68 @@ console.log( yearDeltaw );
 
 
 
-var obj = {
-    a: 1,
-    b: 2,
-    internal: 3
-  };
+// var obj = {
+//     a: 1,
+//     b: 2,
+//     internal: 3
+//   };
   
-  Object.defineProperty(obj, "internal", {
-    enumerable: false
-  });
+//   Object.defineProperty(obj, "internal", {
+//     enumerable: false
+//   });
   
-  console.log( Object.keys(obj) ); // a,b
-  console.log( Object.getOwnPropertyNames(obj) ); // a, b, internal
+//   console.log( Object.keys(obj) ); // a,b
+//   console.log( Object.getOwnPropertyNames(obj) ); // a, b, internal
+
+
+
+
+
+
+
+///////////////////////////////////////////////////  1)
+console.clear();
+
+
+// // function User(fullName) {
+// //     console.log(this.fullName = fullName);
+// // }
+
+// // var vasya = new User("Василий Попкин");
+
+
+
+function User(fullName) {
+    this.fullName = fullName;
+
+    Object.defineProperties(this, {
+
+        firstName: {
+            get: function() {
+                return this.fullName.split(' ')[0];
+            },
+
+            set: function(newFirstName) {
+                this.fullName = newFirstName + ' ' + this.lastName;
+            }
+        },
+
+        lastName: {
+            get: function() {
+                return this.fullName.split(' ')[1];
+            },
+
+            set: function(newLastName) {
+                this.fullName = this.firstName + ' ' + newLastName;
+            }
+        }
+    })
+}
+
+
+var vasya = new User("Василий Попкин");
+
+// vasya.lastName = 'Сидоров';
+
+console.log( vasya.firstName ); // Василий
+console.log( vasya.lastName ); // Попкин
