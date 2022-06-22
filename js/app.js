@@ -28,3 +28,46 @@ console.log(window);
 console.log(navigator);
 console.log(location);
 
+console.log(div.parentElement);         // ссылка на родителя для этого div
+
+console.clear();
+
+const link = div.querySelector('.link');
+
+// console.log(link.parentElement);        // прямой родитель
+// console.log(link.closest('.content')); // ближайший родитель с указаным селектором
+
+
+div.classList.add('article', 'custom');
+div.classList.remove('article');
+// console.log(div.classList);
+// console.log(div.classList.contains('custom'));
+// console.log(div.classList.toggle("toggle"));
+// console.log(div.classList);
+// console.log(div.classList.toggle("toggle"));
+// console.dir(link);
+// console.log(link.href);                             // найти адрес ссылки
+
+
+div.setAttribute('id', 'myId');                        // добавление аттрибутов
+console.dir(div);
+console.dir(div.id);
+
+console.log(div.getAttribute('id'));                   // получение аттрибутов
+
+// console.log(div.hasAttribute('id'));                   // true or false
+
+div.removeAttribute('id');                // удаление аттрибутов
+console.dir(div);
+
+console.dir(div.dataset);
+console.dir(div.dataset.myattr);          // myCustom value
+
+div.dataset.myattr = 'my a';
+console.dir(div.dataset);
+
+console.log(div.getAttribute('data-myattr'));      // получение аттрибутов
+
+
+
+
