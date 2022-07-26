@@ -1,74 +1,166 @@
-let btn_msg = document.getElementById('btn-msg');
+const menu = document.querySelector('.menu');
+// const li_span = document.querySelectorAll('.dropdown_item');
+const li_span = document.querySelectorAll('li span');
+const liClass = document.querySelectorAll('.dropdown_item');
 
-// console.log(ulList);
-// btn_msg.style.backgroundColor = 'red';
-let ppp = document.querySelector('p');
-
-// 1)--------------------------------------------------------------------------------
-
-btn_msg.addEventListener('click', e => {
-    alert(btn_msg.textContent);
-});
+const li_div = menu.querySelectorAll('.dropdown_menu');
+const li = menu.querySelectorAll('li div');
 
 
-// 2)--------------------------------------------------------------------------------
+console.log(li_span);
+console.log(liClass);
 
-btn_msg.addEventListener('mouseover', e => {
-    btn_msg.classList.add('red');
-
-    btn_msg.addEventListener('mouseout', e => {
-        btn_msg.classList.remove('red');
-    })
-})
-
-// 3)--------------------------------------------------------------------------------
-document.body.addEventListener('click', e => {
-    console.log(`${ppp.textContent} ${e.target.tagName}`);
-});
+// const obj = [];
+// for (let key in liClass) {
+//     obj.push(liClass[key].innerText);
+// }
+// // console.log(obj);
+// for (let i = 0; i < obj.length; i++) {
+//     console.log(obj[i]);
+// }
 
 
-// 4)--------------------------------------------------------------------------------
+// li_span.forEach((e) => {
+//     e.addEventListener('click', (e) => {
+//         console.log(e.currentTarget);
 
-let btn_generate = document.getElementById('btn-generate');
+//         for (let i = 0; i < li_div.length; i++) {
+//             if (!e.target === li_div[i]) {
+//                 li_div[i].classList.toggle('d_show');
+//                 li_div[i].classList.toggle('d_none');
+//             } 
+//         }
+//     })
+// })
 
-let ul = document.querySelector('ul');
-let arrayLi = ul.querySelectorAll('li');
-let counter = arrayLi.length;
-console.log(counter);
+// liClass.forEach((element) => element.addEventListener('click', function() 
+// {
+//     li_div.forEach((element) => 
+//     {
+//         if(!element.classList.contains('d_none') === this.querySelector('div')) {
+//             element.classList.toggle('d_none');
+//         }
+//     });
+//     this.querySelector('div').classList.toggle('d_none');
+// }));
 
-btn_generate.addEventListener('click', e => {
-    counter++;
-    let liNew = document.createElement('li');
-    let button = document.createElement('button');
-    liNew.textContent = `Item ${counter}`;
-    ul.appendChild(liNew);
-    // ul.insertAdjacentElement('beforeend', button);
+// Array.from(document.getElementsByClassName('dropdown_item')).forEach((element) => element.addEventListener("click", function() 
+// { 
+//   Array.from(document.getElementsByClassName('dropdown_menu')).forEach((element) => 
+//   {
+//    if(!element.classList.contains('d_none')){ element.classList.add('d_none');}
+//   }
+//   );
+//   this.querySelector('div').classList.toggle('d_none');
+// }));
 
+// --------------------------------------------------------------------------------
+//                                     Anfang
+// --------------------------------------------------------------------------------
 
-    // ul.addEventListener('click', e => {
-    //     if (e.target.tagName === "BUTTON") {
-    //         ul.removeChild(e.target);
-    //         // ul.removeChild(button);
-    //     }
-    // })
-
-    let ulAll = document.querySelector('ul');
-    let arrayLiAll = ulAll.querySelectorAll('li');
-    
-    ulAll.addEventListener('click', removeElement)
-
-    function removeElement(e) {
-        for (let i = 0; i < arrayLiAll.length; i++) {
-            if(e.target === arrayLiAll[i]) {
-                e.target.remove();
-                // arrayLiAll[i].remove();
-            }
-        }
+const newSpan = [];
+li_span.forEach((e) => {
+    if (e.parentElement.classList.contains('dropdown_item')) {
+        newSpan.push(e);
     }
 })
 
+for (let i = 0; i < newSpan.length; i++) {
+    newSpan[i].addEventListener('click', function(e) {
+        for (let i = 0; i < li_div.length; i++) {
+            if (e.target === newSpan[i]) {
+                li_div[i].classList.toggle('d_show');
+            } else {
+                li_div[i].classList.remove('d_show');
+            }
+        }
+    })
+}
+
+// --------------------------------------------------------------------------------
+//                                     Ende
+// --------------------------------------------------------------------------------
 
 
+// --------------------------------------------------------------------------------
+//                                     Anfang
+// --------------------------------------------------------------------------------
+
+// menu.addEventListener('click', e => {
+
+//     for (let i = 0; i < li_span.length; i++) {
+
+//         for (let i = 0; i < li_div.length; i++) {
+//             if (e.target === li_span[i]) {
+//                 li_div[i].classList.toggle('d_show');
+//             } else {
+//                 li_div[i].classList.remove('d_show');
+//             }
+//         }
+//     }
+// })
+
+// --------------------------------------------------------------------------------
+//                                     Ende
+// --------------------------------------------------------------------------------
+
+// menu.addEventListener('click', e => {
+//     // console.log(e.currentTarget);
+
+//     for (let i = 0; i < li_span.length; i++) {
+
+//         // // if (e.currentTarget) {
+//         //     console.log(liClass[i].innerText);
+//         // // }
+//         for (let i = 0; i < li_div.length; i++) {
+//             if (e.target === li_span[i]) {
+//                 li_div[i].classList.toggle('d_show');
+//                 li_div[i].classList.toggle('d_none');
+//             } else {
+//                 li_div[i].classList.remove('d_show');
+//                 li_div[i].classList.add('d_none');
+//             }
+//         }
+//     }
+// })
 
 
+// --------------------------------------------------------------------------------
+//                                     Anfang
+// --------------------------------------------------------------------------------
 
+// const menus = document.getElementsByClassName('menu')[0];
+// menus.addEventListener('click', handlerMenu);
+
+// function handlerMenu(e) {
+//     let li = e.target.parentElement;
+
+//     console.log(li)
+
+//     if (li.classList.contains('dropdown_item')) {
+
+//         let dropdownMenu = li.getElementsByClassName('dropdown_menu')[0];
+
+//         let isHide = dropdownMenu.classList.contains('d_none');
+
+//         closeMenu();
+
+//         if (isHide) {
+//             dropdownMenu.classList.remove("d_none");
+//         } else {
+//             dropdownMenu.classList.add("d_none");
+//         }
+//     }
+// }
+
+// function closeMenu() {
+//     let dropdownMenuList = menu.getElementsByClassName('dropdown_menu');
+
+//     for (let i = 0; i < dropdownMenuList.length; i++) {
+//         dropdownMenuList[i].classList.add('d_none');
+//     }
+// }
+
+// --------------------------------------------------------------------------------
+//                                     Ende
+// --------------------------------------------------------------------------------

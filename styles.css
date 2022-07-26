@@ -1,0 +1,16 @@
+.d_none {
+    display: none;
+}
+
+.d_show {
+    display: block;
+}
+.dropdown_item {
+    cursor: pointer;
+}
+.red {
+    background: red;
+}
+.hide {
+    display: none;
+}
