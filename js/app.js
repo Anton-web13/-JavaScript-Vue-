@@ -1,166 +1,143 @@
-const menu = document.querySelector('.menu');
-// const li_span = document.querySelectorAll('.dropdown_item');
-const li_span = document.querySelectorAll('li span');
-const liClass = document.querySelectorAll('.dropdown_item');
+const tasks = [
+    {
+        _id: '5d2ca9e2e03d40b326596aa7',
+        completed: true,
+        body:
+            'Occaecat non ea quis occaecat ad culpa amet deserunt incididunt elit fugiat pariatur. Exercitation commodo culpa in veniam proident laboris in. Excepteur cupidatat eiusmod dolor consectetur exercitation nulla aliqua veniam fugiat irure mollit. Eu dolor dolor excepteur pariatur aute do do ut pariatur consequat reprehenderit deserunt.\r\n',
+        title: 'Eu ea incididunt sunt consectetur fugiat non.',
+    },
+    {
+        _id: '5d2ca9e29c8a94095c1288e0',
+        completed: false,
+        body:
+            'Aliquip cupidatat ex adipisicing veniam do tempor. Lorem nulla adipisicing et esse cupidatat qui deserunt in fugiat duis est qui. Est adipisicing ipsum qui cupidatat exercitation. Cupidatat aliqua deserunt id deserunt excepteur nostrud culpa eu voluptate excepteur. Cillum officia proident anim aliquip. Dolore veniam qui reprehenderit voluptate non id anim.\r\n',
+        title:
+            'Deserunt laborum id consectetur pariatur veniam occaecat occaecat tempor voluptate pariatur nulla reprehenderit ipsum.',
+    },
+    {
+        _id: '5d2ca9e2e03d40b3232496aa7',
+        completed: true,
+        body:
+            'Occaecat non ea quis occaecat ad culpa amet deserunt incididunt elit fugiat pariatur. Exercitation commodo culpa in veniam proident laboris in. Excepteur cupidatat eiusmod dolor consectetur exercitation nulla aliqua veniam fugiat irure mollit. Eu dolor dolor excepteur pariatur aute do do ut pariatur consequat reprehenderit deserunt.\r\n',
+        title: 'Eu ea incididunt sunt consectetur fugiat non.',
+    },
+    {
+        _id: '5d2ca9e29c8a94095564788e0',
+        completed: false,
+        body:
+            'Aliquip cupidatat ex adipisicing veniam do tempor. Lorem nulla adipisicing et esse cupidatat qui deserunt in fugiat duis est qui. Est adipisicing ipsum qui cupidatat exercitation. Cupidatat aliqua deserunt id deserunt excepteur nostrud culpa eu voluptate excepteur. Cillum officia proident anim aliquip. Dolore veniam qui reprehenderit voluptate non id anim.\r\n',
+        title:
+            'Deserunt laborum id consectetur pariatur veniam occaecat occaecat tempor voluptate pariatur nulla reprehenderit ipsum.',
+    },
+];
 
-const li_div = menu.querySelectorAll('.dropdown_menu');
-const li = menu.querySelectorAll('li div');
+(function (arrOfTasks) {
+    const objOfTasks = arrOfTasks.reduce((acc, task) => {
+        acc[task._id] = task;
+        return acc;
+    }, {})
 
+    // Element UL
+    const listContainer = document.querySelector(
+        '.tasks-list-section',
+        '.list-group'
+    );
 
-console.log(li_span);
-console.log(liClass);
+    const form = document.forms['addTask'];
+    const inputTitle = form.elements['title'];
+    const inputBody = form.elements['body'];
 
-// const obj = [];
-// for (let key in liClass) {
-//     obj.push(liClass[key].innerText);
-// }
-// // console.log(obj);
-// for (let i = 0; i < obj.length; i++) {
-//     console.log(obj[i]);
-// }
+    // console.log(inputTitle, inputBody);
 
+    // Events
+    renderAllTasks(objOfTasks);
 
-// li_span.forEach((e) => {
-//     e.addEventListener('click', (e) => {
-//         console.log(e.currentTarget);
+    form.addEventListener('submit', onFromSubmitHandler);
 
-//         for (let i = 0; i < li_div.length; i++) {
-//             if (!e.target === li_div[i]) {
-//                 li_div[i].classList.toggle('d_show');
-//                 li_div[i].classList.toggle('d_none');
-//             } 
-//         }
-//     })
-// })
+    function renderAllTasks(taskList) {
+        if (!taskList) {
+            console.error('Передайте список задач!');
+            return
+        };
 
-// liClass.forEach((element) => element.addEventListener('click', function() 
-// {
-//     li_div.forEach((element) => 
-//     {
-//         if(!element.classList.contains('d_none') === this.querySelector('div')) {
-//             element.classList.toggle('d_none');
-//         }
-//     });
-//     this.querySelector('div').classList.toggle('d_none');
-// }));
+        const fragment = document.createDocumentFragment();
+        Object.values(taskList).forEach((task) => {
+            const li = listItemTemlate(task);
+            fragment.appendChild(li);
+        // listContainer.appendChild(li);
+    });
 
-// Array.from(document.getElementsByClassName('dropdown_item')).forEach((element) => element.addEventListener("click", function() 
-// { 
-//   Array.from(document.getElementsByClassName('dropdown_menu')).forEach((element) => 
-//   {
-//    if(!element.classList.contains('d_none')){ element.classList.add('d_none');}
-//   }
-//   );
-//   this.querySelector('div').classList.toggle('d_none');
-// }));
+    listContainer.appendChild(fragment);
 
-// --------------------------------------------------------------------------------
-//                                     Anfang
-// --------------------------------------------------------------------------------
-
-const newSpan = [];
-li_span.forEach((e) => {
-    if (e.parentElement.classList.contains('dropdown_item')) {
-        newSpan.push(e);
     }
-})
 
-for (let i = 0; i < newSpan.length; i++) {
-    newSpan[i].addEventListener('click', function(e) {
-        for (let i = 0; i < li_div.length; i++) {
-            if (e.target === newSpan[i]) {
-                li_div[i].classList.toggle('d_show');
-            } else {
-                li_div[i].classList.remove('d_show');
-            }
+    function listItemTemlate({ _id, title, body } = {}) {
+        const li = document.createElement('li');
+        li.classList.add(
+            'list-group-item',
+            'd-flex', 'align-items-center',
+            'flex-wrap',
+            'mt-2'
+        );
+        
+        const span = document.createElement('span');
+        span.textContent = title;
+        span.style.fontWeight = 'bold';
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete task';
+        deleteBtn.classList.add(
+            'btn',
+            'btn-danger',
+            'ml-auto', 
+            'delete-btn'
+        );
+
+        const article = document.createElement('p');
+        article.textContent = body;
+        article.classList.add('mt-2', 'w-100');
+
+        li.appendChild(span);
+        li.appendChild(deleteBtn);
+        li.appendChild(article);
+
+        return li;
+    }
+
+    function onFromSubmitHandler(e) {
+        e.preventDefault();
+        const titleValue = inputTitle.value;
+        const bodyValue = inputBody.value;
+
+        if (!titleValue || !bodyValue) {
+            alert('Пожалуйста введите tile и body');
+            return;
         }
-    })
-}
 
-// --------------------------------------------------------------------------------
-//                                     Ende
-// --------------------------------------------------------------------------------
+        const task = createNewTask(titleValue, bodyValue);
+        const listItem = listItemTemlate(task);
+        listContainer.insertAdjacentElement('afterbegin', listItem);
+        form.reset();
+        // renderAllTasks(listItem);
+        // console.log(listItem);
+    }
 
+    function createNewTask(title, body) {
+        const newTask = {
+            title,
+            body,
+            completed: false,
+            _id:`task-${Math.random()}`
+        }
 
-// --------------------------------------------------------------------------------
-//                                     Anfang
-// --------------------------------------------------------------------------------
-
-// menu.addEventListener('click', e => {
-
-//     for (let i = 0; i < li_span.length; i++) {
-
-//         for (let i = 0; i < li_div.length; i++) {
-//             if (e.target === li_span[i]) {
-//                 li_div[i].classList.toggle('d_show');
-//             } else {
-//                 li_div[i].classList.remove('d_show');
-//             }
-//         }
-//     }
-// })
-
-// --------------------------------------------------------------------------------
-//                                     Ende
-// --------------------------------------------------------------------------------
-
-// menu.addEventListener('click', e => {
-//     // console.log(e.currentTarget);
-
-//     for (let i = 0; i < li_span.length; i++) {
-
-//         // // if (e.currentTarget) {
-//         //     console.log(liClass[i].innerText);
-//         // // }
-//         for (let i = 0; i < li_div.length; i++) {
-//             if (e.target === li_span[i]) {
-//                 li_div[i].classList.toggle('d_show');
-//                 li_div[i].classList.toggle('d_none');
-//             } else {
-//                 li_div[i].classList.remove('d_show');
-//                 li_div[i].classList.add('d_none');
-//             }
-//         }
-//     }
-// })
+        objOfTasks[newTask._id] = newTask;
+        // console.log(objOfTasks);
+        return {...newTask};
+    }
+})(tasks);
 
 
-// --------------------------------------------------------------------------------
-//                                     Anfang
-// --------------------------------------------------------------------------------
 
-// const menus = document.getElementsByClassName('menu')[0];
-// menus.addEventListener('click', handlerMenu);
 
-// function handlerMenu(e) {
-//     let li = e.target.parentElement;
 
-//     console.log(li)
 
-//     if (li.classList.contains('dropdown_item')) {
-
-//         let dropdownMenu = li.getElementsByClassName('dropdown_menu')[0];
-
-//         let isHide = dropdownMenu.classList.contains('d_none');
-
-//         closeMenu();
-
-//         if (isHide) {
-//             dropdownMenu.classList.remove("d_none");
-//         } else {
-//             dropdownMenu.classList.add("d_none");
-//         }
-//     }
-// }
-
-// function closeMenu() {
-//     let dropdownMenuList = menu.getElementsByClassName('dropdown_menu');
-
-//     for (let i = 0; i < dropdownMenuList.length; i++) {
-//         dropdownMenuList[i].classList.add('d_none');
-//     }
-// }
-
-// --------------------------------------------------------------------------------
-//                                     Ende
-// --------------------------------------------------------------------------------
