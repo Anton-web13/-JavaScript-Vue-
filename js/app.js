@@ -53,6 +53,7 @@ const tasks = [
     renderAllTasks(objOfTasks);
 
     form.addEventListener('submit', onFromSubmitHandler);
+    listContainer.addEventListener('click', oneDeletehandler);
 
     function renderAllTasks(taskList) {
         if (!taskList) {
@@ -62,6 +63,7 @@ const tasks = [
 
         const fragment = document.createDocumentFragment();
         Object.values(taskList).forEach((task) => {
+            // console.log(task);
             const li = listItemTemlate(task);
             fragment.appendChild(li);
         // listContainer.appendChild(li);
@@ -80,6 +82,8 @@ const tasks = [
             'mt-2'
         );
         
+        li.setAttribute('data-task-id', _id);
+
         const span = document.createElement('span');
         span.textContent = title;
         span.style.fontWeight = 'bold';
@@ -116,6 +120,7 @@ const tasks = [
 
         const task = createNewTask(titleValue, bodyValue);
         const listItem = listItemTemlate(task);
+        // console.log(listItem);
         listContainer.insertAdjacentElement('afterbegin', listItem);
         form.reset();
         // renderAllTasks(listItem);
@@ -133,6 +138,33 @@ const tasks = [
         objOfTasks[newTask._id] = newTask;
         // console.log(objOfTasks);
         return {...newTask};
+    }
+
+    function deleteTask(id) {
+        // console.log(objOfTasks[id]);
+        const { title } = objOfTasks[id];
+        const isConfirm = confirm(`Точно вы хотите удалить задачу: ${title}`);
+        if (!isConfirm) return isConfirm;
+        delete objOfTasks[id];
+        // console.log(objOfTasks);
+        return isConfirm;
+    }
+
+    function deleteTaskFromHtml(confirmed, el) {
+        if (!confirmed) return;
+        el.remove();
+    }
+
+    function oneDeletehandler({ target}) {
+        if (target.classList.contains('delete-btn')) {
+            const parent = target.closest('[data-task-id]');
+            const id = parent.dataset.taskId;
+            console.log(id);
+            const confirmed = deleteTask(id);
+            // console.log(confirmed);
+            deleteTaskFromHtml(confirmed, parent);
+        }
+        // console.log(target);
     }
 })(tasks);
 
